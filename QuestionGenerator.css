@@ -1,0 +1,701 @@
+
+
+  
+
+.question-generator-container {
+  padding: 2.5rem; /* Increased padding for more breathing room */
+ /* background-color: #fcfcfc; /* Very light background for the section */
+  background-image: linear-gradient( 69.2deg,  rgba(77,143,251,1) 35.3%, rgba(202,51,255,1) 100.3% );
+  border-radius: 1.25rem; /* More rounded corners */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); /* Deeper, softer shadow */
+  border: 1px solid #e0e0e0; /* Subtle border */
+}
+
+.generator-title {
+  font-size: 2.8rem; /* Larger title */
+  font-weight: 900; /* Ultra bold */
+  color: #2c3e50; /* Darker, more professional text color */
+  margin-bottom: 1.25rem;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.08); /* More noticeable text shadow */
+}
+
+.generator-description {
+  font-size: 1.15rem;
+  color: #555; /* Medium gray */
+  margin-bottom: 3rem; /* More space below description */
+  text-align: center;
+  max-width: 55rem; /* Wider description for better readability */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+/* Quick Select Section */
+.quick-select-section {
+  margin-bottom: 3rem; /* More space */
+  text-align: center;
+}
+
+.quick-select-title {
+  font-size: 1.4rem; /* Slightly larger */
+  font-weight: 700; /* Bold */
+  color: #34495e; /* Darker gray */
+  margin-bottom: 1.25rem;
+}
+
+.quick-select-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem; /* Slightly increased gap */
+}
+
+.quick-select-button {
+  background-color: #e6f0ff; /* Lighter blue background */
+  color: #4a75e6; /* Blue text */
+  font-weight: 600; /* Semi-bold */
+  padding: 0.7rem 1.4rem; /* More padding */
+  border-radius: 9999px; /* Pill shape */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: all 0.25s ease; /* Smooth transitions */
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+}
+
+.quick-select-button:hover {
+  background-color: #cce0ff; /* Darker blue on hover */
+  transform: translateY(-3px); /* More pronounced lift effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18); /* Enhanced shadow on hover */
+}
+
+.quick-select-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f2f2f2;
+  color: #999;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Input and Generate Button Section */
+.input-generate-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem; /* Increased gap */
+  margin-bottom: 3.5rem; /* More space below */
+}
+
+@media (min-width: 768px) {
+  .input-generate-section {
+    flex-direction: row;
+    gap: 1.8rem; /* Increased gap for larger screens */
+  }
+}
+
+.job-category-input {
+  padding: 0.9rem 1.4rem; /* More padding */
+  border: 2px solid #ccc; /* Thicker, subtle border */
+  border-radius: 0.8rem; /* More rounded */
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1); /* Inner shadow */
+  outline: none;
+  width: 100%;
+  max-width: 30rem; /* Wider input */
+  transition: all 0.3s ease; /* Smooth transitions */
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.job-category-input:focus {
+  border-color: #6a5acd; /* Deeper purple on focus */
+  box-shadow: 0 0 0 5px rgba(106, 90, 205, 0.3); /* Stronger focus ring */
+  background-color: #ffffff;
+}
+
+.generate-new-questions-button { /* Renamed class */
+  background: linear-gradient(to right, #6a5acd, #8a2be2); /* Purple gradient background */
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.9rem 2.2rem; /* More padding */
+  border-radius: 0.8rem; /* More rounded */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Deeper shadow */
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em; /* Slight letter spacing */
+  text-transform: uppercase;
+}
+
+.generate-new-questions-button:hover {
+  background: linear-gradient(to right, #5a4bbf, #7a1ed0); /* Darker gradient on hover */
+  transform: translateY(-4px); /* More pronounced lift */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+.generate-new-questions-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #b0b0b0; /* Gray background when disabled */
+  box-shadow: none;
+  transform: none;
+}
+
+/* Loading Spinners */
+.loading-spinner, .loading-spinner-small {
+  display: flex;
+  align-items: center;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  margin-right: 0.8rem;
+  height: 1.6rem; /* Slightly larger spinner */
+  width: 1.6rem;
+  color: #ffffff;
+  border: 4px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+}
+
+.spinner-small {
+  animation: spin 1s linear infinite;
+  margin-right: 0.6rem;
+  height: 1.3rem; /* Slightly larger small spinner */
+  width: 1.3rem;
+  color: #ffffff;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error Message */
+.error-message {
+  background-color: #ffebeb; /* Lighter red background */
+  border: 1px solid #ef4444;
+  color: #cc0000; /* Darker red text */
+  padding: 1rem;
+  border-radius: 0.6rem; /* More rounded */
+  margin-bottom: 2.5rem;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.error-bold {
+  font-weight: bold;
+}
+
+.error-text {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .error-text {
+    display: inline;
+  }
+}
+
+/* Interview Session Container */
+.interview-session-container {
+  margin-top: 3rem; /* Increased top margin */
+  background-color: #fcfcfc; /* White background for the session */
+  padding: 2.5rem; /* More padding */
+  border-radius: 1.25rem; /* More rounded */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18); /* Stronger shadow */
+  border: 1px solid #e0e0e0; /* Subtle border */
+}
+
+.session-title {
+  font-size: 2rem; /* Larger title */
+  font-weight: 800; /* Bold */
+  color: #2c3e50;
+  margin-bottom: 1.5rem; /* More space below */
+  text-align: center;
+  border-bottom: 2px solid #e0e0e0; /* Underline effect */
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.session-progress {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  background-color: #f0f4f8;
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  border: 1px solid #d0d5dc;
+}
+
+.session-control-buttons { /* New container for session buttons */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem; /* Space between buttons */
+  margin-top: 2rem; /* Space below session title */
+  margin-bottom: 2.5rem; /* Space before questions list */
+}
+
+.clear-session-button {
+  background: linear-gradient(to right, #e74c3c, #c0392b); /* Red gradient */
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.75rem 1.8rem;
+  border-radius: 0.6rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.clear-session-button:hover {
+  background: linear-gradient(to right, #c0392b, #a93226);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.generate-more-questions-button { /* New button style */
+  background: linear-gradient(to right, #2980b9, #3498db); /* Blue gradient */
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.75rem 1.8rem;
+  border-radius: 0.6rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.generate-more-questions-button:hover {
+  background: linear-gradient(to right, #21709e, #2c81b3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.generate-more-questions-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #b0b0b0;
+  box-shadow: none;
+  transform: none;
+}
+
+
+.questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Increased gap between questions */
+}
+
+.question-card {
+  background-color: #ffffff;
+  padding: 1.8rem; /* More padding */
+  border-radius: 1rem; /* More rounded */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Clearer shadow */
+  border: 1px solid #e0e0e0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative; /* Needed for absolute positioning of delete button */
+}
+
+.question-card:hover {
+  transform: translateY(-4px); /* More subtle lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.delete-question-button { /* New delete button style */
+  position: absolute;
+  top: 0.8rem; /* Adjust position */
+  right: 0.8rem; /* Adjust position */
+  background: none;
+  border: none;
+  font-size: 1.5rem; /* Make 'X' larger */
+  color: #e74c3c; /* Red color */
+  cursor: pointer;
+  padding: 0.2rem;
+  line-height: 1; /* Prevent extra space */
+  transition: color 0.2s ease, transform 0.2s ease;
+  opacity: 0.7;
+}
+
+.delete-question-button:hover {
+  color: #c0392b; /* Darker red on hover */
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.question-text {
+  font-size: 1.3rem; /* Larger question text */
+  font-weight: 700; /* Bold */
+  color: #34495e;
+  margin-bottom: 1.25rem; /* More space below question */
+  line-height: 1.5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-answer-display {
+  background-color: #f8f8f8;
+  border: 1px dashed #e0e0e0;
+  border-radius: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  margin-top: 1rem;
+  font-style: italic;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+}
+.user-answer-display p {
+  margin: 0;
+}
+
+
+.answer-textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem; /* More padding */
+  border: 2px solid #d0d5dc;
+  border-radius: 0.75rem; /* More rounded */
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+  margin-top: 0.8rem; /* More space above */
+  min-height: 140px; /* Taller textarea */
+  transition: all 0.3s ease;
+  font-size: 1.05rem;
+  color: #333;
+  resize: vertical;
+}
+
+.answer-textarea:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 0 0 4px rgba(106, 90, 205, 0.25);
+  background-color: #ffffff;
+}
+
+/* MCQ Options */
+.mcq-options-container {
+  margin-top: 0.8rem; /* More space above */
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* More space between options */
+}
+
+.mcq-option-label {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.2rem; /* More padding */
+  border-radius: 0.6rem; /* More rounded */
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: 1px solid #e0e0e0; /* Subtle border */
+  background-color: #fefefe; /* Slightly off-white */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.mcq-option-label:hover {
+  background-color: #f5f8ff; /* Lighter blue on hover */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.mcq-radio-input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.3rem; /* Larger custom radio */
+  height: 1.3rem;
+  border: 2px solid #a0aec0; /* Gray border */
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.mcq-radio-input:checked {
+  background-color: #6a5acd; /* Purple fill when checked */
+  border-color: #6a5acd;
+}
+
+.mcq-radio-input:checked::before {
+  content: '';
+  display: block;
+  width: 0.7rem; /* Inner dot size */
+  height: 0.7rem;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mcq-radio-input:focus {
+  box-shadow: 0 0 0 4px rgba(106, 90, 205, 0.35); /* Focus ring */
+}
+
+.mcq-option-text {
+  margin-left: 0.8rem; /* More space from radio button */
+  color: #34495e;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* Action buttons below question */
+.question-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Space between buttons */
+  margin-top: 1.5rem;
+  justify-content: flex-start; /* Align buttons to start */
+}
+
+
+.review-button, .model-answer-button {
+  background: linear-gradient(to right, #38a169, #48bb78); /* Green gradient */
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.75rem 1.6rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.review-button:hover {
+  background: linear-gradient(to right, #2f855a, #38a169);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.model-answer-button {
+  background: linear-gradient(to right, #3498db, #2980b9); /* Blue gradient for model answer */
+}
+
+.model-answer-button:hover {
+  background: linear-gradient(to right, #2980b9, #21709e);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.review-button:disabled, .model-answer-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #b0b0b0;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Copy Button (small, for text copying) */
+.copy-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem; /* Emoji size */
+  margin-left: 0.5rem;
+  padding: 0.2rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+  opacity: 0.7;
+}
+
+.copy-button:hover {
+  background-color: #e0e0e0;
+  opacity: 1;
+}
+
+
+/* Feedback Card (now a section for collapsibility) */
+.feedback-section {
+  margin-top: 1.5rem; /* More space above */
+  padding: 1.5rem;
+  background-color: #e0f2fe; /* Lighter blue background */
+  border-radius: 0.75rem;
+  border: 1px solid #90cdf4;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px dashed #bfdbfe;
+  padding-bottom: 0.5rem;
+  cursor: pointer; /* Indicate it's clickable */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.feedback-title .copy-button {
+  margin-left: 1rem; /* Adjust spacing for copy button */
+}
+
+
+.feedback-text {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.feedback-score {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #2c5282;
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.score-value {
+  font-size: 2rem;
+  color: #1a365d;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+}
+
+/* Model Answer Card */
+.model-answer-card {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: #f0f4f8; /* Light gray-blue background */
+  border-radius: 0.75rem;
+  border: 1px solid #d0d5dc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.model-answer-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #34495e;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px dashed #c0c0c0;
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.model-answer-title .copy-button {
+  margin-left: 1rem; /* Adjust spacing for copy button */
+}
+
+.model-answer-text {
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* Overall Summary Section */
+.overall-summary-section {
+  margin-top: 3rem;
+  padding: 2.5rem;
+  background-color: #e8f5e9; /* Very light green background */
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #c8e6c9;
+  text-align: center;
+}
+
+.generate-summary-button {
+  background: linear-gradient(to right, #4caf50, #66bb6a); /* Green gradient */
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.9rem 2.2rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2rem; /* Space below button */
+}
+
+.generate-summary-button:hover {
+  background: linear-gradient(to right, #388e3c, #43a047);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.generate-summary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #b0b0b0;
+  box-shadow: none;
+  transform: none;
+}
+
+.overall-summary-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  text-align: left; /* Align text left within the card */
+}
+
+.overall-summary-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #34495e;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overall-summary-text {
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  white-space: pre-wrap; 
+}
+
+.overall-average-score {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #2c5282;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

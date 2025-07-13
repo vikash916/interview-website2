@@ -1,0 +1,140 @@
+/* App.css */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5; /* A light, neutral background for the entire page */
+  min-height: 100vh; /* Ensure body takes at least full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%; /* Ensure the app container takes full width */
+}
+
+.navbar {
+  background: linear-gradient(to right, #4a69bd, #6a89cc); /* Deep blue gradient */
+  padding: 1rem 2rem;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.navbar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1400px; /* Max width for nav content */
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .navbar-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.navbar-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 768px) {
+  .navbar-title {
+    margin-bottom: 0;
+  }
+}
+
+.navbar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem; /* Space between nav items */
+}
+
+.nav-button {
+  background-color: rgba(255, 255, 255, 0.15); /* Slightly transparent white */
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button.active {
+  background-color: #ffffff;
+  color: #4a69bd; /* Active button text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Main Content Area */
+.main-content-area {
+  flex-grow: 1;
+  padding: 2.5rem; /* Consistent padding around the main content */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%; /* Ensure it takes full width */
+  box-sizing: border-box;
+}
+
+.main-content-card {
+  background-color: #ffffff;
+  border-radius: 1.5rem; /* More rounded corners */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Deeper shadow for the main card */
+  padding: 2.5rem; /* More internal padding */
+  width: 100%; /* Make it take full available width */
+  /* REMOVED: max-width: 960px; */ /* This was limiting the width */
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scroll if content overflows */
+}
+
+/* Footer */
+.footer {
+  background-color: #34495e; /* Darker footer background */
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* **Reasoning for the change:**
+
+The primary change is in the `.main-content-card` rule within `App.css`. I have **removed the `max-width: 960px;` property**. This was the constraint preventing the content from expanding fully on larger screens. By setting `width: 100%` and removing the `max-width`, the `.main-content-card` (and thus the `question-generator-container` inside it) will now stretch to fill its parent (`.main-content-area`), which itself is set to `width: 100%`.
+
+**To apply this change:**
+
+1.  **Replace the entire content of your `App.css` file** with the code provided above.
+2.  **Save the file.**
+3.  **Restart your development server** (e.g., `npm run dev`).
+
+You should now see the content of your "AI Interview Coach" page taking up the full available width of your laptop scre */
